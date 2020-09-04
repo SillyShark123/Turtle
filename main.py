@@ -6,17 +6,25 @@ def main():
   global jae
   global y
   global z
-  y = 100
+  global colorFade
+  y = 500
   z = 30
+  colorFade = 256
   jae = turtle.Turtle()
   jae.speed(10)
   while True:
-      rectangle(random.randint(10,50),random.randint(10,50), random.randint(0,500),random.randint(0,500))
-      jae.right(random.randint(0,90))
+    jae.penup()
+    jae.goto(0,-1000)
+    jae.pendown()
+    circle(y)
+    colorFade -= 20
+    y -= z
+      #rectangle(random.randint(10,50),random.randint(10,50), random.randint(0,500),random.randint(0,500))
+      #jae.right(random.randint(0,90))
 
 
 def beginTurtle():
-  jae.fillcolor(random.randint(0,255),random.randint(0,255),random.randint(0,255))
+  jae.fillcolor(colorFade,0,0)
   jae.begin_fill()
 
 def rectangle(width,height,x_start,y_start):
