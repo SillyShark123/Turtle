@@ -7,18 +7,23 @@ def main():
   global y
   global z
   global colorFade
-  y = 500
-  z = 30
+  y = 50
+  z = 3
   colorFade = 256
   jae = turtle.Turtle()
   jae.speed(10)
   while True:
     jae.penup()
-    jae.goto(0,-1000)
+    jae.goto(0,-50)
     jae.pendown()
-    circle(y)
-    colorFade -= 20
+    triangle(y)
+    if y <= 0:
+      jae.right(30)
+      colorFade = 256
+      y = 50
+
     y -= z
+    colorFade -= 10
       #rectangle(random.randint(10,50),random.randint(10,50), random.randint(0,500),random.randint(0,500))
       #jae.right(random.randint(0,90))
 
@@ -44,6 +49,16 @@ def rectangle(width,height,x_start,y_start):
 
 def square(width,x_start,y_start):
   rectangle(width, width,x_start,y_start)
+
+def triangle(length):
+  beginTurtle()
+  jae.forward(length)
+  jae.right(120)
+  jae.forward(length)
+  jae.right(120)
+  jae.forward(length)
+  jae.right(120)
+  jae.end_fill()
 
 
 def circle(diameter):
